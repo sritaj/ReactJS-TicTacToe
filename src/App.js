@@ -20,7 +20,19 @@ const App = () => {
     itemArray.fill("empty", 0, 9);
   };
   const checkIsWinner = () => {};
-  const changeItem = (itemNumber) => {};
+  const changeItem = (itemNumber) => {
+    if (winMessage) {
+      return toast(winMessage, { type: "success" });
+    }
+    if (itemArray[itemNumber] === "empty") {
+      itemArray[itemNumber] = isCross ? "cross" : "circle";
+      setIsCross(!isCross);
+    } else {
+      return toast("already filled", { type: "error" });
+    }
+
+    checkIsWinner();
+  };
 
   return (
     <Container className="p-5">
