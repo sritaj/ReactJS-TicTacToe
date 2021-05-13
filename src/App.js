@@ -39,6 +39,20 @@ const App = () => {
       <ToastContainer position="bottom-center"></ToastContainer>
       <Row>
         <Col md={6} className="offset-md-3">
+          {winMessage ? (
+            <div className="mb-2 mt-2">
+              <h1 className="text-success text-uppercase tex-center">
+                {winMessage}
+              </h1>
+              <Button color="success" block onClick={reloadGame}>
+                Reload the Game
+              </Button>
+            </div>
+          ) : (
+            <h1 className="text-center text-warning">
+              {isCross ? "Cross" : "Circle"} turns
+            </h1>
+          )}
           <div className="grid">
             {itemArray.map((item, index) => (
               <Card>
